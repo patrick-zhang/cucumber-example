@@ -11,3 +11,12 @@ end
 get '/overview' do
   erb :overview
 end
+
+post '/login' do
+  if(params[:email] == 'admin' && params[:password] == "123")
+    erb :overview
+  else
+    erb :error
+  end
+  
+end
