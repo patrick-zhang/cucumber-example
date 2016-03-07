@@ -1,40 +1,30 @@
 class LoginPage
 
-  def initialize(page)
-    @page = page
-  end  
-  
+  include Capybara::DSL
+
   def open
-    @page.visit 'http://localhost:4567/login'
+    visit 'http://localhost:4567/login'
   end
   
   def page_title
-    @page.find 'h1'
-  end
-
-  def email_field_name
-    'email'
-  end
-
-  def password_field_name
-    'password'
-  end
-
-  def email_field
-    @page.find_field email_field_name
-  end
-
-  def password_field
-    @page.find_field password_field_name
+    find '.login h1'
   end
 
   def login_button
-    @page.find 'input.button'
+    find 'input.button'
+  end
+
+  def email_field
+    find_field 'email'
+  end
+
+  def password_field
+    find_field 'password'
   end
 
   def login(email, password)
-    @page.fill_in email_field_name, :with => email
-    @page.fill_in password_field_name, :with => password
+    fill_in 'email', :with => email
+    fill_in 'password', :with => password
     login_button.click
   end
 

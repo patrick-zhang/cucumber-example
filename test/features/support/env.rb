@@ -1,6 +1,7 @@
 require 'capybara/cucumber'
+require 'capybara/dsl'
 require 'rspec'
-require_relative '../../app/example'
+require_relative '../../../app/example'
 
 Capybara.app = Sinatra::Application
 
