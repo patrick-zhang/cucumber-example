@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'sinatra'
-gem 'bundle'
+gem 'bundler'
 
 group :development do
   gem 'cucumber'
